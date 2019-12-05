@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <script src="../socket.io/socket.io.js"></script>
+    <style>
+        button {
+            border-radius: 5px;
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+            width: 25vh;
+            height: 5vh;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        p {
+            color: white;
+        }
+
+        input[type=text] {
+            border: 1px solid white;
+            border-radius: 5px;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div align="center">
+        <p>
+            姓名：<input type="text" id="username">
+        </p>
+
+        <p>
+            帳號：<input type="text" id="account">
+        </p>
+
+        <p>
+            密碼：<input type="text" id="password">
+        </p>
+
+        <p>
+            <button id="registerBtn">註冊</button>
+        </p>
+    </div>
+
+    <script>
+        var socket = io();
+        var btn = document.getElementById('registerBtn');
+
+        btn.addEventListener('click', (e) => {
+            socket.emit('register', {
+                username: document.getElementById('username').value,
+                account: document.getElementById('account').value,
+                password: document.getElementById('password').value
+            });
+        })
+
+        socket.on('register', msg => {
+            console.log(msg);
+        })
+    </script>
+</body>
+
+</html>
