@@ -12,13 +12,19 @@ connection.connect();
 
 function sqlQuery(sql) {
     connection.query(sql, (err, result) => {
-        console.log(result);
+        if (err)
+            console.log(`[Server Message]：${err}`);
+        else
+            return result;
     })
 }
 
 function sqlPattern(sql, pattern) {
     connection.query(sql, pattern, (err, result) => {
-        console.log(result);
+        if (err)
+            console.log(`[Server Message]：${err}`);
+        else
+            return 'Create Success';
     })
 }
 

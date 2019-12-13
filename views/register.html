@@ -5,52 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="../socket.io/socket.io.js"></script>
     <style>
-        button {
-            border-radius: 5px;
-            background-color: black;
-            border: 1px solid black;
-            color: white;
-            width: 25vh;
-            height: 5vh;
-            font-size: 20px;
-            font-family: cursive;
+        .container {
+            margin-top: 20px;
+        }
+
+        .card-header {
+            text-align: center;
         }
 
         body {
-            background-color: #333;
-        }
-
-        p {
-            color: white;
-        }
-
-        input[type=text] {
-            border: 1px solid white;
-            border-radius: 5px;
-            border-color: white;
+            background: #333;
         }
     </style>
 </head>
 
 <body>
-    <div align="center">
-        <p>
-            姓名：<input type="text" id="username">
-        </p>
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">Register</h5>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="username">姓名：</label>
+                    <input type="text" class="form-control" id="username">
+                </div>
 
-        <p>
-            帳號：<input type="text" id="account">
-        </p>
+                <div class="form-group">
+                    <label for="account">帳號：</label>
+                    <input type="text" class="form-control" id="account">
+                </div>
 
-        <p>
-            密碼：<input type="text" id="password">
-        </p>
+                <div class="form-group">
+                    <label for="password">密碼：</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
 
-        <p>
-            <button id="registerBtn">註冊</button>
-        </p>
+                <button class="btn btn-primary btn-lg btn-block" id="registerBtn">Register Button</button>
+            </div>
+        </div>
     </div>
 
     <script>

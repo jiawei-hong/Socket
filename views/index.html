@@ -5,60 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>index Page</title>
     <style>
-        button {
-            border-radius: 5px;
-            background-color: black;
-            border: 1px solid black;
-            color: white;
-            width: 25vh;
-            height: 5vh;
-            font-size: 20px;
-            font-family: cursive;
-        }
-
-        button>a {
-            color: white;
-            text-decoration: none;
-        }
-
-        #main {
-            position: absolute;
-            left: 40%;
-        }
-
         body {
             background: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .card-header {
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div align="center" id="main">
-        <p>
-            <a href="/registerPage">
-                <button>
-                    Register
-                </button>
-            </a>
-        </p>
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">Featured</h5>
+            <div class="card-body">
 
-        <p>
-            <a href="/loginPage">
-                <button>
-                    Login
-                </button>
-            </a>
-        </p>
-
-        <p>
-            <a href="/searchPage">
-                <button>
-                    Search
-                </button>
-            </a>
-        </p>
+                <a href="/registerPage" class="btn btn-primary btn-lg btn-block">Regisetr Button</a>
+                <a href="/loginPage" class="btn btn-primary btn-lg btn-block">Login Button</a>
+            </div>
+        </div>
     </div>
 </body>
 

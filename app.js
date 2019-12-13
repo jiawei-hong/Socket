@@ -26,26 +26,12 @@ io.on('connection', (res) => {
     res.on('register', msg => {
         const sqlString = 'INSERT INTO `member`(`m_name`, `m_account`, `m_password`) VALUES (?,?,?)';
         const sqlData = [msg.username, msg.account, msg.password];
-
-        sql.sqlPattern(sqlString, sqlData, (err, result) => {
-            if (err)
-                console.log(`[ServerMessage]：${err}`);
-            else
-                return 'Create Success!';
-        });
+        console.log(sql.sqlPattern(sqlString, sqlData));
     });
 
-    res.on('search', msg => {
-        const sqlString = `select * from ${msg.data} where m_name = ? `;
-        const sqlData = [msg.username];
-
-        sql.sqlPattern(sqlString, sqlData, (err, result) => {
-            if (err)
-                console.log(`[ServerMessage]：${err}`);
-            else
-                return result;
-        });
-    });
+    res.on('login', msg => {
+        console.log(msg);
+    })
 
     res.on('disconnect', () => {
         console.log('有人離開了~');
