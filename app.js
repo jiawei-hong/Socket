@@ -6,32 +6,28 @@ var router = require('./router');
 var op = require('openurl');
 var sql = require('./sql');
 
-app.use('/', router);
+app.use(router, express.static('views/public'));
 
 server.listen(8000, () => {
     console.log(`Server Started. http://localhost:8000`);
-    op.open('http://localhost:8000');
+    // op.open('http://localhost:8000');
 });
 
 
-io.on('connection', (res) => {
+io.on('connection', res => {
     res.on('addUser', (msg) => {
         console.log(`[ServerMessage]： ${msg} 登入`);
-    });
-
-    res.on('sendMessage', msg => {
-        io.emit('sendMessage', msg);
     });
 
     res.on('register', msg => {
         const sqlString = 'INSERT INTO `member`(`m_name`, `m_account`, `m_password`) VALUES (?,?,?)';
         const sqlData = [msg.username, msg.account, msg.password];
-        console.log(sql.sqlPattern(sqlString, sqlData));
+        io.emit('register', sql.sqlPattern(sqlString, sqlData));
     });
 
     res.on('login', msg => {
-        console.log(msg);
-    })
+        io.emit('login', msg);
+    });
 
     res.on('disconnect', () => {
         console.log('有人離開了~');

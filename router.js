@@ -9,6 +9,10 @@ router.get('/registerPage', (req, res) => {
     res.sendFile(`${__dirname}/views/register.html`);
 });
 
+router.get('/loginPage', (req, res) => {
+    res.sendFile(`${__dirname}/views/login.html`);
+})
+
 router.get('/chat', (req, res) => {
     res.sendFile(`${__dirname}/views/chatPage.html`);
 });

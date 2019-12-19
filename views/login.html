@@ -16,11 +16,6 @@
             <h5 class="card-header">Register</h5>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="username">姓名：</label>
-                    <input type="text" class="form-control" id="username">
-                </div>
-
-                <div class="form-group">
                     <label for="account">帳號：</label>
                     <input type="text" class="form-control" id="account">
                 </div>
@@ -30,25 +25,26 @@
                     <input type="password" class="form-control" id="password">
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block" id="registerBtn">Register Button</button>
+                <button class="btn btn-primary btn-lg btn-block" id="loginBtn">Login Button</button>
             </div>
         </div>
     </div>
 
     <script>
         var socket = io();
-        var btn = document.getElementById('registerBtn');
+        var loginBtn = document.getElementById('loginBtn');
+        var name = '';
 
-        btn.addEventListener('click', (e) => {
-            socket.emit('register', {
-                username: document.getElementById('username').value,
-                account: document.getElementById('account').value,
-                password: document.getElementById('password').value
-            });
+        socket.on('login', msg => {
+            name = msg.username;
+            console.log(name);
         })
 
-        socket.on('register', msg => {
-            console.log(msg);
+        loginBtn.addEventListener('click', () => {
+            socket.emit('login', {
+                username: document.getElementById('account').value,
+                password: document.getElementById('password').value
+            });
         })
     </script>
 </body>

@@ -6,48 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Chatroom</title>
     <script src="../socket.io/socket.io.js"></script>
-    <style>
-        ul {
-            list-style-type: none;
-        }
-
-        body {
-            background-color: lightgoldenrodyellow;
-        }
-
-        ul>li {
-            color: black;
-            font-size: 25px;
-            margin-bottom: 30px;
-        }
-
-        ul>li>span {
-            border: 10px solid;
-            user-select: none;
-        }
-
-        button {
-            border-radius: 5px;
-            background-color: black;
-            border: 1px solid black;
-            color: white;
-            width: 25vh;
-            height: 5vh;
-            font-size: 20px;
-            font-family: cursive;
-        }
-
-        #message {
-            width: 25vh;
-            height: 4vh;
-            border-radius: 25px;
-            background-color: gray;
-            border: 1px solid gray;
-            color: white;
-            text-align: center;
-            font-family: cursive;
-        }
-    </style>
+    <link rel="stylesheet" href="/main.css">
 </head>
 
 <body>
@@ -77,7 +36,7 @@
         var sendBtn = document.getElementById('sendBtn');
         var message = document.getElementById('message');
         var ul = document.getElementById('msgRecords');
-        var name;
+        var name = 'Guest'; //default name
 
         socket.on('sendMessage', res => {
             const li = document.createElement('li');
@@ -86,7 +45,7 @@
             li.style.textAlign = name == res.username ? 'right' : 'left';
             span.textContent = `${res.date}  ${res.username} 說：${res.content}`;
             span.style.borderColor = name == res.username ? 'transparent red transparent transparent' :
-                'transparent transparent transparent red';
+                'transparent transparent transparent gray';
             li.appendChild(span);
             ul.appendChild(li);
         })

@@ -1,0 +1,48 @@
+.container {
+    margin-top: 20px;
+}
+
+.card-header {
+    text-align: center;
+}
+
+body {
+    background: #333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul>li {
+    color: black;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+ul>li>span {
+    border: 10px solid;
+    user-select: none;
+}
+
+button {
+    border-radius: 5px;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    width: 25vh;
+    height: 5vh;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+#message {
+    width: 25vh;
+    height: 4vh;
+    border-radius: 25px;
+    background-color: gray;
+    border: 1px solid gray;
+    color: white;
+    text-align: center;
+    font-family: cursive;
+}
