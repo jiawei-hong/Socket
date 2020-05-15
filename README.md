@@ -1,7 +1,7 @@
 # Socket Chatroom Exercise
 
 //install  
-npm install openurl express scoket.io mysql
+npm install
 
 //Start  
 node app.js
