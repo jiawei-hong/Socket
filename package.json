@@ -8,7 +8,7 @@
     "firebase": "^7.5.0",
     "mysql": "^2.17.1",
     "openurl": "^1.1.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {},
   "scripts": {
